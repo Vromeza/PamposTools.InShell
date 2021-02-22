@@ -5,7 +5,7 @@ namespace PamposTools.InShell
     /// <summary>
     /// Command which encapsulates an <see cref="Action"/>. See <see cref="ICommand"/>
     /// </summary>
-    public class ActionCommand : ICommand
+    internal class ActionCommand : ICommand
     {
         private Action _action;
 

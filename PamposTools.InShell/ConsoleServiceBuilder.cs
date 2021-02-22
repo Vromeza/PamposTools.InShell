@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PamposTools.InShell
 {
@@ -21,6 +22,16 @@ namespace PamposTools.InShell
 
         public ConsoleServiceBuilder WithDefinitions(params CommandDefinition[] commandDefinitions) {
             _consoleService.CommandDefinitions.AddRange(commandDefinitions);
+            return this;
+        }
+
+        public ConsoleServiceBuilder WithDefinition(int id, string description, ICommand command) {
+            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, command));
+            return this;
+        }
+
+        public ConsoleServiceBuilder WithDefinition(int id, string description, Action action) {
+            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, action));
             return this;
         }
 
@@ -47,6 +58,16 @@ namespace PamposTools.InShell
 
         public ConsoleServiceBuilder<T> WithDefinitions(params CommandDefinition[] commandDefinitions) {
             _consoleService.CommandDefinitions.AddRange(commandDefinitions);
+            return this;
+        }
+
+        public ConsoleServiceBuilder<T> WithDefinition(int id, string description, ICommand command) {
+            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, command));
+            return this;
+        }
+
+        public ConsoleServiceBuilder<T> WithDefinition(int id, string description, Action action) {
+            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, action));
             return this;
         }
 

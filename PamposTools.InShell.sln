@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PamposTools.InShell", "PamposTools.InShell\PamposTools.InShell.csproj", "{050492D9-A345-475B-8426-284C7836922B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PamposTools.InShell.Console", "PamposTools.InShell.Console\PamposTools.InShell.Console.csproj", "{9840EF44-529D-4629-9F65-956ABDE48674}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{050492D9-A345-475B-8426-284C7836922B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050492D9-A345-475B-8426-284C7836922B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{050492D9-A345-475B-8426-284C7836922B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9840EF44-529D-4629-9F65-956ABDE48674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9840EF44-529D-4629-9F65-956ABDE48674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9840EF44-529D-4629-9F65-956ABDE48674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9840EF44-529D-4629-9F65-956ABDE48674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

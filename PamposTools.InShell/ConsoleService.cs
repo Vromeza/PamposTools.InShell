@@ -61,7 +61,7 @@ namespace PamposTools.InShell
             try {
                 CommandDefinitions.Single(cd => cd.Id == n).Command.Execute();
             }
-            catch (InvalidOperationException ex) {
+            catch (InvalidOperationException) {
                 PrintHelper.PrintLine("INTERNAL ERROR: You are not allowed to have more than one definition with the same Id", LogLevel.Critical);
             }
 

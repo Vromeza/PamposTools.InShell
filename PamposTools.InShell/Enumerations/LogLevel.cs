@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PamposTools.InShell
+﻿namespace PamposTools.InShell
 {
+    /// <summary>
+    /// Console output levels
+    /// </summary>
     public enum LogLevel
     {
         Plain,

@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace PamposTools.InShell.Console
+﻿namespace PamposTools.InShell.Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args) {
+        private static void Main(string[] args) {
             var service = new ConsoleServiceBuilder()
                 .WithName("TESTER SERVICE")
                 .WithDefinitions(
@@ -13,9 +11,7 @@ namespace PamposTools.InShell.Console
                 )
                 .Build();
 
-            IConsoleService service2 = new ConsoleService();
             service.Start();
-            //service2.Start();
         }
     }
 }

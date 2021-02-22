@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PamposTools.InShell
 {
@@ -11,7 +7,7 @@ namespace PamposTools.InShell
     /// </summary>
     public sealed class ConsoleServiceBuilder
     {
-        ConsoleService _consoleService = new ConsoleService();
+        private ConsoleService _consoleService = new ConsoleService();
 
         public ConsoleServiceBuilder WithName(string name) {
             _consoleService.Name = name;
@@ -19,12 +15,12 @@ namespace PamposTools.InShell
         }
 
         public ConsoleServiceBuilder WithDefinitions(List<CommandDefinition> commandDefinitions) {
-                _consoleService.CommandDefinitions.AddRange(commandDefinitions);
+            _consoleService.CommandDefinitions.AddRange(commandDefinitions);
             return this;
         }
 
         public ConsoleServiceBuilder WithDefinitions(params CommandDefinition[] commandDefinitions) {
-                _consoleService.CommandDefinitions.AddRange(commandDefinitions);
+            _consoleService.CommandDefinitions.AddRange(commandDefinitions);
             return this;
         }
 
@@ -37,7 +33,7 @@ namespace PamposTools.InShell
     /// <typeparam name="T"></typeparam>
     public sealed class ConsoleServiceBuilder<T> where T : class, IConsoleService, IServiceDefinition, new()
     {
-        T _consoleService = new T();
+        private T _consoleService = new T();
 
         public ConsoleServiceBuilder<T> WithName(string name) {
             _consoleService.Name = name;

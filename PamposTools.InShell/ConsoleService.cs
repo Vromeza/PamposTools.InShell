@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PamposTools.InShell
 {
+    /// <inheritdoc cref="IConsoleService"/>
+    /// <summary>
+    /// Base console service.
+    /// Shows the services options, processes input with validation and executes commands based on choice
+    /// Can be inherited for any further functionality required
+    /// </summary>
     public class ConsoleService : IConsoleService, IServiceDefinition
     {
         public string Name { get; set; }
         public List<CommandDefinition> CommandDefinitions { get; set; } = new List<CommandDefinition>();
 
         public ConsoleService() {
-
         }
 
         public ConsoleService(string name, List<CommandDefinition> commandDefinitions) {
@@ -61,7 +64,7 @@ namespace PamposTools.InShell
             catch (InvalidOperationException ex) {
                 PrintHelper.PrintLine("INTERNAL ERROR: You are not allowed to have more than one definition with the same Id", LogLevel.Critical);
             }
-            
+
             return true;
         }
     }

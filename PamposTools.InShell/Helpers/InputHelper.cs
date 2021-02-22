@@ -1,11 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PamposTools.InShell
 {
+    /// <summary>
+    /// Helper class for handling input
+    /// </summary>
     public static class InputHelper
     {
+        /// <summary>
+        /// Gets a boolean response from user input
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <returns></returns>
         public static bool GetYesOrNo(string promptMessage) {
             do {
                 PrintHelper.Print($"{promptMessage}");
@@ -16,9 +22,11 @@ namespace PamposTools.InShell
                     case "n":
                     case "no":
                         return false;
+
                     case "y":
                     case "yes":
                         return true;
+
                     default:
                         PrintHelper.PrintLine($"Invalid response '{response}'. Please answer 'y' or 'n' or CTRL+C to exit.", LogLevel.Warning);
                         break;
@@ -27,11 +35,21 @@ namespace PamposTools.InShell
             while (true);
         }
 
+        /// <summary>
+        /// Gets a string from user input
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <returns></returns>
         public static string GetString(string promptMessage) {
             PrintHelper.Print($"{promptMessage}");
             return Console.ReadLine();
         }
 
+        /// <summary>
+        /// Gets an integer from user input
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <returns></returns>
         public static int GetInt(string promptMessage) {
             do {
                 PrintHelper.Print($"{promptMessage}");
@@ -51,6 +69,13 @@ namespace PamposTools.InShell
             while (true);
         }
 
+        /// <summary>
+        /// Gets an integer from user input. Validates minimum and maximum ranges
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static int GetInt(string promptMessage, int min, int max) {
             do {
                 int integer = GetInt(promptMessage);

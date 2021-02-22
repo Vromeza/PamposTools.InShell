@@ -8,7 +8,7 @@ namespace PamposTools.InShell
     {
         public static bool GetYesOrNo(string promptMessage) {
             do {
-                PrintHelper.Print($"{promptMessage}  ");
+                PrintHelper.Print($"{promptMessage}");
 
                 string response = Console.ReadLine()?.ToLower()?.Trim();
 
@@ -28,13 +28,13 @@ namespace PamposTools.InShell
         }
 
         public static string GetString(string promptMessage) {
-            PrintHelper.Print($"{promptMessage}  ");
+            PrintHelper.Print($"{promptMessage}");
             return Console.ReadLine();
         }
 
         public static int GetInt(string promptMessage) {
             do {
-                PrintHelper.Print($"{promptMessage}  ");
+                PrintHelper.Print($"{promptMessage}");
                 string? resp = Console.ReadLine()?.ToLower()?.Trim();
 
                 if (string.IsNullOrEmpty(resp)) {

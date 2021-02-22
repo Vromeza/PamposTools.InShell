@@ -14,8 +14,8 @@ namespace PamposTools.InShell.Console
                 .Build();
 
             IConsoleService service2 = new ConsoleService();
-            //service.Start();
-            service2.Start();
+            service.Start();
+            //service2.Start();
         }
     }
 }

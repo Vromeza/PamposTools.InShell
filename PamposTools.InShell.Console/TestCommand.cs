@@ -12,7 +12,7 @@ namespace PamposTools.InShell.Console
     public class TestCommand : ICommand
     {
         public void Execute() {
-            string testInput = InputHelper.GetString("Enter some random string");
+            string testInput = InputHelper.GetString("Enter some random string:");
 
             PrintHelper.PrintLine($"Showing random string: {testInput}", LogLevel.Success);
         }

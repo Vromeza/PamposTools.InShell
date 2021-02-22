@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Charalambos Hadjiantoniou</Authors>
+    <Product>InShell (Interactive Shell)</Product>
+    <Description>InShell is a library for interactive console applications. Includes common input/output helpers and is based on the Command Pattern for quickly creating tasks/actions to be executed from a console application.</Description>
+    <Copyright>Charalambos Hadjiantoniou</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Vromeza/PamposTools.InShell</RepositoryUrl>
+    <PackageTags>Console, ConsoleApplication, Interactive, Commands</PackageTags>
   </PropertyGroup>
 
 </Project>

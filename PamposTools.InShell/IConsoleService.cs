@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PamposTools.InShell
 {
-    public interface IConsoleService : IServiceDefinition
+    public interface IConsoleService
     {
         void Start();
         void PrintConsoleOptions();

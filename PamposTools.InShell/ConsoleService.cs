@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PamposTools.InShell
 {
-    public class ConsoleService : IConsoleService
+    public class ConsoleService : IConsoleService, IServiceDefinition
     {
         public string Name { get; set; }
         public List<CommandDefinition> CommandDefinitions { get; set; } = new List<CommandDefinition>();
@@ -14,6 +14,7 @@ namespace PamposTools.InShell
         public ConsoleService() {
 
         }
+
         public ConsoleService(string name, List<CommandDefinition> commandDefinitions) {
             Name = name;
             CommandDefinitions = commandDefinitions;

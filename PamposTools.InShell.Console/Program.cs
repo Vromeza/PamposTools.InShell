@@ -13,8 +13,7 @@ namespace PamposTools.InShell.Console
                 )
                 .Build();
 
-            var service2 = new ConsoleService();
-
+            IConsoleService service2 = new ConsoleService();
             //service.Start();
             service2.Start();
         }

@@ -37,16 +37,15 @@ namespace PamposTools.InShell
         /// <param name="logLevel"></param>
         /// <returns></returns>
         private static ConsoleColor GetColor(LogLevel logLevel) {
-            return logLevel switch
-            {
-                LogLevel.Plain => ConsoleColor.White,
-                LogLevel.Information => ConsoleColor.Cyan,
-                LogLevel.Warning => ConsoleColor.Yellow,
-                LogLevel.Error => ConsoleColor.Red,
-                LogLevel.Critical => ConsoleColor.DarkRed,
-                LogLevel.Success => ConsoleColor.Green,
-                _ => ConsoleColor.Gray,
-            };
+            switch (logLevel) {
+                case LogLevel.Plain: return ConsoleColor.White;
+                case LogLevel.Information: return ConsoleColor.Cyan;
+                case LogLevel.Warning: return ConsoleColor.Yellow;
+                case LogLevel.Error: return ConsoleColor.Red;
+                case LogLevel.Critical: return ConsoleColor.DarkRed;
+                case LogLevel.Success: return ConsoleColor.Green;
+                default: return ConsoleColor.Gray;
+            }
         }
     }
 }

@@ -53,7 +53,7 @@ namespace PamposTools.InShell
         public static int GetInt(string promptMessage) {
             do {
                 PrintHelper.Print($"{promptMessage}");
-                string? resp = Console.ReadLine()?.ToLower()?.Trim();
+                string resp = Console.ReadLine()?.ToLower()?.Trim();
 
                 if (string.IsNullOrEmpty(resp)) {
                     PrintHelper.PrintLine("Please enter a valid number or press CTRL+C to exit.", LogLevel.Warning);

@@ -46,6 +46,22 @@ namespace PamposTools.InShell
         }
 
         /// <summary>
+        /// Gets a string from user input. Validates using the provided validation method.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="validationMethod"></param>
+        /// <returns></returns>
+        public static string GetString(string promptMessage, Func<string, bool> validationMethod) {
+            string input;
+            do {
+                input = GetString(promptMessage);
+
+            } while (!validationMethod(input));
+
+            return input;
+        }
+
+        /// <summary>
         /// Gets an integer from user input
         /// </summary>
         /// <param name="promptMessage"></param>
@@ -81,11 +97,27 @@ namespace PamposTools.InShell
                 int integer = GetInt(promptMessage);
 
                 if (integer < min || integer > max) {
-                    PrintHelper.PrintLine($"Please enter a number between {min} and {max} inclusive");
+                    PrintHelper.PrintLine($"Please enter a number between {min} and {max} inclusive", LogLevel.Warning);
                     continue;
                 }
                 return integer;
             } while (true);
+        }
+
+        /// <summary>
+        /// Gets an integer from user input. Validates using the provided validation method.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="validationMethod"></param>
+        /// <returns></returns>
+        public static int GetInt(string promptMessage, Func<int, bool> validationMethod) {
+            int integer; 
+            do {
+                integer = GetInt(promptMessage);
+
+            } while (!validationMethod(integer));
+
+            return integer;
         }
     }
 }

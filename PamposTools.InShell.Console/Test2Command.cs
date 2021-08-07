@@ -9,7 +9,7 @@
                 PrintHelper.PrintLine($"Congratulations. You became a bird for {days} days", LogLevel.Success);
             }
             else
-                PrintHelper.PrintLine($"Thats too bad. Keep walking...", LogLevel.Warning);
+                PrintHelper.PrintLine($"That's too bad. Keep walking...", LogLevel.Warning);
         }
     }
 }

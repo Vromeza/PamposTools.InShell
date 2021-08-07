@@ -9,9 +9,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Vromeza/PamposTools.InShell</RepositoryUrl>
     <PackageTags>Console, ConsoleApplication, Interactive, Commands</PackageTags>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <PackageReleaseNotes>1.0.1
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <PackageReleaseNotes>1.0.2
+Added GetString and GetInt overloads in InputHelper for specifying validation method (Contributor: aLifeOnMars)
+
+1.0.1
 Added support for .NET Framework 4.5 - 4.7.2, NET Standard 1.2 and .NET Core 3.1</PackageReleaseNotes>
   </PropertyGroup>
 

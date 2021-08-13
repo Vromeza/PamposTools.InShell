@@ -5,7 +5,7 @@ namespace PamposTools.InShell
     /// <summary>
     /// Helper class to handle console outputs
     /// </summary>
-    public static class PrintHelper
+    public static partial class PrintHelper
     {
         /// <summary>
         /// Prints to console in new line

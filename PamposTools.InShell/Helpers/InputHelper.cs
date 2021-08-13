@@ -5,7 +5,7 @@ namespace PamposTools.InShell
     /// <summary>
     /// Helper class for handling input
     /// </summary>
-    public static class InputHelper
+    public static partial class InputHelper
     {
         /// <summary>
         /// Gets a boolean response from user input
@@ -86,7 +86,7 @@ namespace PamposTools.InShell
         }
 
         /// <summary>
-        /// Gets an integer from user input. Validates minimum and maximum ranges
+        /// Gets an integer from user input. Validates value is within the scpecified range.
         /// </summary>
         /// <param name="promptMessage"></param>
         /// <param name="min"></param>
@@ -118,6 +118,65 @@ namespace PamposTools.InShell
             } while (!validationMethod(integer));
 
             return integer;
+        }
+
+        /// <summary>
+        /// Gets a decimal from user input.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <returns></returns>
+        public static decimal GetDecimal(string promptMessage) {
+            do {
+                PrintHelper.Print($"{promptMessage}");
+                string resp = Console.ReadLine()?.ToLower()?.Trim();
+
+                if (string.IsNullOrEmpty(resp)) {
+                    PrintHelper.PrintLine("Please enter a valid number or press CTRL+C to exit.", LogLevel.Warning);
+                    continue;
+                }
+
+                if (decimal.TryParse(resp, out var result)) {
+                    return result;
+                }
+
+                PrintHelper.PrintLine($"Invalid number '{resp}'. Please enter a valid number or press CTRL+C to exit.", LogLevel.Warning);
+            }
+            while (true);
+        }
+
+        /// <summary>
+        /// Gets an decimal from user input. Validates value is within the scpecified range.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static decimal GetDecimal(string promptMessage, decimal min, decimal max) {
+            do {
+                decimal number = GetDecimal(promptMessage);
+
+                if (number < min || number > max) {
+                    PrintHelper.PrintLine($"Please enter a number between {min} and {max} inclusive", LogLevel.Warning);
+                    continue;
+                }
+                return number;
+            } while (true);
+        }
+
+        /// <summary>
+        /// Gets an decimal from user input. Validates using the provided validation method.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="validationMethod"></param>
+        /// <returns></returns>
+        public static decimal GetDecimal(string promptMessage, Func<decimal, bool> validationMethod) {
+            decimal number; 
+            do {
+                number = GetDecimal(promptMessage);
+
+            } while (!validationMethod(number));
+
+            return number;
         }
     }
 }

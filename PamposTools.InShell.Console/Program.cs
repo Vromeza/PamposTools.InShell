@@ -11,14 +11,16 @@
             var service = new ConsoleServiceBuilder()
                 .WithName("TESTER SERVICE")
                 .WithDefinitions(
-                new CommandDefinition(1, "some description", new TestCommand()),
+                new CommandDefinition(1, "some description", new TestStringCommand()),
                 new CommandDefinition(2, "Test some description", () => { System.Console.WriteLine("Writing from action"); })
                 )
                 .WithDefinition(3, "some other description", () => { System.Console.WriteLine("Writing from another action"); })
-                .WithDefinition(4, "Fly or not?", new Test2Command())
+                .WithDefinition(4, "Fly or not?", new TestYesNoCommand())
                 .WithDefinition(5, "Keep printing", KeepPrinting)
                 .WithDefinition(6, "Test Integer Validation", new TestIntegerValidationCommand())
                 .WithDefinition(7, "Test String Validation", new TestStringValidationCommand())
+                .WithDefinition(8, "Test Decimal Validation", new TestDecimalValidationCommand())
+                .WithDefinition(9, "Test DateTime Validation", new TestDateTimeValidationCommand())
                 .Build();
 
             service.Start();

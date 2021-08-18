@@ -1,6 +1,6 @@
 ﻿namespace PamposTools.InShell.Console
 {
-    public class Test2Command : ICommand
+    public class TestYesNoCommand : ICommand
     {
         public void Execute() {
             bool fly = InputHelper.GetYesOrNo("Would you like to fly?: ");

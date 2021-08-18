@@ -3,7 +3,7 @@
     /// <summary>
     /// Concrete class for a command
     /// </summary>
-    public class TestCommand : ICommand
+    public class TestStringCommand : ICommand
     {
         public void Execute() {
             string testInput = InputHelper.GetString("Enter some random string:");

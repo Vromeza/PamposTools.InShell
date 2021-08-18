@@ -85,9 +85,6 @@ namespace PamposTools.InShell
             if (methodInfo.ReturnType == typeof(void)) {
                 methodInfo.Invoke(instance, null);
             }
-            else {
-                _ = methodInfo.Invoke(instance, null);
-            }
         }
 
         private async Task InvokeCommandExecution(ICommandBase commandBase) {

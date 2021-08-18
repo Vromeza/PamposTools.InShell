@@ -18,4 +18,8 @@ Added GetString and GetInt overloads in InputHelper for specifying validation me
 Added support for .NET Framework 4.5 - 4.7.2, NET Standard 1.2 and .NET Core 3.1</PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+
 </Project>

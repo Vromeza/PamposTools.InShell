@@ -3,8 +3,8 @@
     internal class Program
     {
         private static void Main(string[] args) {
-            RunService1();
-            //RunService2();
+            //RunService1();
+            RunService2();
         }
 
         private static void RunService1() {

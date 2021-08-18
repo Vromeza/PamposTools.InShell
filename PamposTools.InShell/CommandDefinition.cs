@@ -8,6 +8,21 @@ namespace PamposTools.InShell
     /// </summary>
     public sealed class CommandDefinition
     {
+        /// <summary>
+        /// The id of the command
+        /// </summary>
+        public int Id { get; private set; }
+
+        /// <summary>
+        /// Command description
+        /// </summary>
+        public string Description { get; private set; }
+
+        /// <summary>
+        /// The command
+        /// </summary>
+        public ICommandBase Command { get; private set; }
+
         private CommandDefinition(int id, string description) {
             Id = id;
             Description = description;
@@ -19,7 +34,7 @@ namespace PamposTools.InShell
         /// <param name="id"></param>
         /// <param name="description"></param>
         /// <param name="command"></param>
-        public CommandDefinition(int id, string description, ICommand command)
+        public CommandDefinition(int id, string description, ICommandBase command)
             : this(id, description) {
             Command = command;
         }
@@ -34,20 +49,5 @@ namespace PamposTools.InShell
             : this(id, description) {
             Command = new ActionCommand(command);
         }
-
-        /// <summary>
-        /// The id of the command
-        /// </summary>
-        public int Id { get; private set; }
-
-        /// <summary>
-        /// Command description
-        /// </summary>
-        public string Description { get; private set; }
-
-        /// <summary>
-        /// The command
-        /// </summary>
-        public ICommand Command { get; private set; }
     }
 }

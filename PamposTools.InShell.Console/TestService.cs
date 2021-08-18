@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PamposTools.InShell.Console
@@ -18,6 +19,7 @@ namespace PamposTools.InShell.Console
             CommandDefinitions.Add(new CommandDefinition(2, "Command 2", Command2));
             CommandDefinitions.Add(new CommandDefinition(3, "Command 3", Command3));
             CommandDefinitions.Add(new CommandDefinition(4, "Command 4", Command4));
+            CommandDefinitions.Add(new CommandDefinition(5, "Command 5", async () => await Command5()));
         }
 
         private void Command1() {
@@ -34,6 +36,10 @@ namespace PamposTools.InShell.Console
 
         private void Command4() {
             PrintHelper.PrintLine("This is command 4", LogLevel.Warning);
+        }
+
+        private async Task Command5() {
+            Thread.Sleep(1000);
         }
     }
 }

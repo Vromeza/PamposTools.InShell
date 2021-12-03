@@ -8,8 +8,11 @@ namespace PamposTools.InShell
     /// </summary>
     public sealed class CommandDefinition
     {
-        private CommandDefinition(int id, string description) {
+        internal CommandDefinition(int id) {
             Id = id;
+        }
+
+        internal CommandDefinition(int id, string description) : this(id) {
             Description = description;
         }
 
@@ -49,5 +52,23 @@ namespace PamposTools.InShell
         /// The command
         /// </summary>
         public ICommand Command { get; private set; }
+
+        /// <summary>
+        /// Indicates whether the command requires a confirmation prior to execution
+        /// </summary>
+        public bool RequiresConfirmation { get; private set; }
+
+        /// <summary>
+        /// The definition's confirmation message
+        /// </summary>
+        internal string ConfirmationMessage { get; private set; }
+
+        /// <summary>
+        /// Sets the indication of whether the command requires confirmation or not
+        /// </summary>
+        internal void RequireConfirmation(string confirmationMessage) {
+            RequiresConfirmation = true;
+            ConfirmationMessage = confirmationMessage;
+        }
     }
 }

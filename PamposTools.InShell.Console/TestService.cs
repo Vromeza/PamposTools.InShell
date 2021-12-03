@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PamposTools.InShell.Console
+﻿namespace PamposTools.InShell.Console
 {
     public class TestService : ConsoleService
     {
@@ -18,6 +12,7 @@ namespace PamposTools.InShell.Console
             CommandDefinitions.Add(new CommandDefinition(2, "Command 2", Command2));
             CommandDefinitions.Add(new CommandDefinition(3, "Command 3", Command3));
             CommandDefinitions.Add(new CommandDefinition(4, "Command 4", Command4));
+            CommandDefinitions.Add(new CommandDefinitionBuilder(5).WithDescription("Command 5").WithCommand(Command5).WithConfirmation().Build());
         }
 
         private void Command1() {
@@ -34,6 +29,10 @@ namespace PamposTools.InShell.Console
 
         private void Command4() {
             PrintHelper.PrintLine("This is command 4", LogLevel.Warning);
+        }
+
+        private void Command5() {
+            PrintHelper.PrintLine("This is command 5", LogLevel.Warning);
         }
     }
 }

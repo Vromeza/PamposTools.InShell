@@ -59,13 +59,29 @@ namespace PamposTools.InShell
             }
 
             try {
-                CommandDefinitions.Single(cd => cd.Id == n).Command.Execute();
+                var definition = GetDefinitionById(n);
+                if (ConfirmAction(definition)) {
+                    definition.Command.Execute();
+                }
             }
             catch (InvalidOperationException) {
                 PrintHelper.PrintLine("INTERNAL ERROR: You are not allowed to have more than one definition with the same Id", LogLevel.Critical);
             }
 
             return true;
+        }
+
+        private CommandDefinition GetDefinitionById(int id) {
+            return CommandDefinitions.Single(cd => cd.Id == id);
+        }
+
+        private static bool ConfirmAction(CommandDefinition definition) {
+            string confirmationMessage = !string.IsNullOrEmpty(definition.ConfirmationMessage) ? definition.ConfirmationMessage : "Are you sure you want to execute the above action";
+            bool confirm = InputHelper.GetYesOrNo(confirmationMessage);
+            if (!confirm) {
+                PrintHelper.PrintLine("Aborting...", LogLevel.Error);
+            }
+            return confirm;
         }
     }
 }

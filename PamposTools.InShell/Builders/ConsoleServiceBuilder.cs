@@ -26,12 +26,14 @@ namespace PamposTools.InShell
         }
 
         public ConsoleServiceBuilder WithDefinition(int id, string description, ICommand command) {
-            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, command));
+            CommandDefinition commandDefinition = new CommandDefinition(id, description, command);
+            _consoleService.CommandDefinitions.Add(commandDefinition);
             return this;
         }
 
         public ConsoleServiceBuilder WithDefinition(int id, string description, Action action) {
-            _consoleService.CommandDefinitions.Add(new CommandDefinition(id, description, action));
+            CommandDefinition commandDefinition = new CommandDefinition(id, description, action);
+            _consoleService.CommandDefinitions.Add(commandDefinition);
             return this;
         }
 

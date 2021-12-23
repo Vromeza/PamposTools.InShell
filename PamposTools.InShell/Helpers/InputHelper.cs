@@ -220,7 +220,6 @@ namespace PamposTools.InShell
         /// Gets an date/time from user input. Validates value is within the scpecified range.
         /// </summary>
         /// <param name="promptMessage"></param>
-        /// <param name="format"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
@@ -232,9 +231,9 @@ namespace PamposTools.InShell
         /// Gets an date/time from user input. Validates value is within the scpecified range.
         /// </summary>
         /// <param name="promptMessage"></param>
-        /// <param name="formats"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="dateFormats"></param>
         /// <returns></returns>
         public static DateTime GetDateTime(string promptMessage, DateTime min, DateTime max, params string[] dateFormats) {
             do {
@@ -252,7 +251,6 @@ namespace PamposTools.InShell
         /// Gets an date/time from user input. Validates using the provided validation method.
         /// </summary>
         /// <param name="promptMessage"></param>
-        /// <param name="format"></param>
         /// <param name="validationMethod"></param>
         /// <returns></returns>
         public static DateTime GetDateTime(string promptMessage, Func<DateTime, bool> validationMethod) {
@@ -263,8 +261,8 @@ namespace PamposTools.InShell
         /// Gets an date/time from user input. Validates using the provided validation method.
         /// </summary>
         /// <param name="promptMessage"></param>
-        /// <param name="formats"></param>
         /// <param name="validationMethod"></param>
+        /// <param name="dateFormats"></param>
         /// <returns></returns>
         public static DateTime GetDateTime(string promptMessage, Func<DateTime, bool> validationMethod, params string[] dateFormats) {
             DateTime dateTime;
@@ -275,5 +273,49 @@ namespace PamposTools.InShell
 
             return dateTime;
         }
+
+
+        /// <summary>
+        /// Gets a GUID from user input.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <returns></returns>
+        public static Guid GetGuid(string promptMessage)
+        {
+            do {
+                PrintHelper.Print($"{promptMessage}");
+                string resp = Console.ReadLine()?.ToLower()?.Trim();
+
+                if (string.IsNullOrEmpty(resp)) {
+                    PrintHelper.PrintLine("Please enter a valid GUID or press CTRL+C to exit.", LogLevel.Warning);
+                    continue;
+                }
+
+                if (Guid.TryParse(resp, out var result)) {
+                    return result;
+                }
+
+                PrintHelper.PrintLine($"Invalid GUID '{resp}'. Please enter a valid GUID or press CTRL+C to exit.", LogLevel.Warning);
+            }
+            while (true);
+        }
+
+        /// <summary>
+        /// Gets an GUID from user input. Validates using the provided validation method.
+        /// </summary>
+        /// <param name="promptMessage"></param>
+        /// <param name="validationMethod"></param>
+        /// <returns></returns>
+        public static Guid GetGuid(string promptMessage, Func<Guid, bool> validationMethod)
+        {
+            Guid guid;
+            do {
+                guid = GetGuid(promptMessage);
+
+            } while (!validationMethod(guid));
+
+            return guid;
+        }
+
     }
 }

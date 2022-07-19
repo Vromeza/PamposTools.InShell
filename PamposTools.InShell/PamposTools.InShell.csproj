@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.1;netcoreapp3.1;net45;net47;net471;net472</TargetFrameworks>
+    <TargetFrameworks>net6.0;net5.0;netstandard2.1;netcoreapp3.1;net47;net471;net472</TargetFrameworks>
     <Authors>Charalambos Hadjiantoniou</Authors>
     <Product>InShell (Interactive Shell)</Product>
     <Description>InShell is a library for interactive console applications. Includes common input/output helpers and is based on the Command Pattern for quickly creating tasks/actions to be executed from a console application.</Description>
@@ -9,9 +9,14 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Vromeza/PamposTools.InShell</RepositoryUrl>
     <PackageTags>Console, ConsoleApplication, Interactive, Commands</PackageTags>
-    <Version>1.0.3</Version>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <PackageReleaseNotes>1.0.3
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <PackageReleaseNotes>1.0.4
+Removed support for .NET Framework 4.5.
+Added support for .NET 6.0.
+Added GetGuid method in InputHelper for Guid inputs.
+
+1.0.3
 Added GetDecimal and GetDateTime in InputHelper
 
 1.0.2
@@ -19,7 +24,7 @@ Added GetString and GetInt overloads in InputHelper for specifying validation me
 
 1.0.1
 Added support for .NET Framework 4.5 - 4.7.2, NET Standard 1.2 and .NET Core 3.1</PackageReleaseNotes>
-    <FileVersion>1.0.3.0</FileVersion>
+    <FileVersion>1.0.4.0</FileVersion>
   </PropertyGroup>
 
 </Project>

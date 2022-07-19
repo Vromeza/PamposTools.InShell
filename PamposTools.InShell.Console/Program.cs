@@ -21,6 +21,7 @@
                 .WithDefinition(7, "Test String Validation", new TestStringValidationCommand())
                 .WithDefinition(8, "Test Decimal Validation", new TestDecimalValidationCommand())
                 .WithDefinition(9, "Test DateTime Validation", new TestDateTimeValidationCommand())
+                .WithDefinition(10, "Test GUID Validation", new TestGuidValidationCommand())
                 .Build();
 
             service.Start();
